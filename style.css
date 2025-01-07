@@ -1,0 +1,266 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 900px;
+  margin: auto;
+  padding: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: background 0.3s ease-in-out;
+}
+
+header {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.8rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: rotate(20deg) scale(1.2);
+  color: #ffeb3b;
+}
+
+/* Note Input Section */
+.note-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+#note-text {
+  width: 100%;
+  height: 120px;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: #555;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+#note-text:focus {
+  outline: none;
+  border-color: #6a11cb;
+}
+
+#add-note {
+  align-self: flex-end;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #6a11cb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#add-note:hover {
+  background: #2575fc;
+  transform: translateY(-2px);
+}
+
+/* Notes Container */
+#notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.note {
+  position: relative;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.note:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.note p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.note .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.note .metadata {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.delete-note {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.delete-note:hover {
+  background: darkred;
+  transform: scale(1.1);
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 1rem;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+/* Dark Theme Styles */
+body.dark {
+  background: linear-gradient(to bottom, #232526, #414345);
+  color: #e0e0e0;
+}
+
+body.dark .app-container {
+  background: #2c2c2c;
+}
+
+body.dark header {
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+}
+
+body.dark footer {
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+}
+
+body.dark #note-text {
+  background: #444;
+  color: #ddd;
+  border-color: #555;
+}
+
+body.dark #add-note {
+  background: #928dab;
+}
+
+body.dark .note {
+  background: #3a3a3a;
+  color: white;
+}
+
+body.dark .note p {
+  color: white;
+}
+
+body.dark .delete-note {
+  background: #ff3b3b;
+}
+
+body.dark #theme-toggle {
+  color: #ffeb3b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  #theme-toggle {
+    top: 15px;
+    right: 15px;
+  }
+
+  #add-note {
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #theme-toggle {
+    font-size: 1.5rem;
+    top: 10px;
+    right: 10px;
+  }
+
+  #add-note {
+    font-size: 0.9rem;
+  }
+}
